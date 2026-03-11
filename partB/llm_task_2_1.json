@@ -1,0 +1,47 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Choosing an appropriate toy dataset for iSVM reproduction",
+      "prompt": "I need to choose a toy dataset for reproducing iSVM (Dirichlet Process Mixture of SVMs). The dataset should have nonlinear class boundaries and multiple underlying clusters, and must be different from the paper's dataset. What are some options?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested make_moons, make_circles, and XOR pattern as options; I chose make_moons because it best matches the paper's two-component Gaussian mixture setup",
+      "student_verification": "Verified that make_moons has two naturally separable clusters (crescents) matching the two-component Gaussian mixture described in the paper's synthetic Setting 1 and Figure 1",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 2.1"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "I need to choose a toy dataset for reproducing iSVM (Dirichlet Process Mixture of SVMs). The dataset should have nonlinear class boundaries and multiple underlying clusters, and must be different from the paper's dataset. What are some options?",
+      "why_important": "Dataset selection was the first practical decision for Part B. This prompt helped me identify make_moons as the closest structural analogue to the paper's synthetic experiments."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

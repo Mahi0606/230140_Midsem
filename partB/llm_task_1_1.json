@@ -1,0 +1,87 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Understanding the MED framework and how it extends SVM to a Bayesian setting",
+      "prompt": "Explain how Maximum Entropy Discrimination (MED) by Jaakkola et al. 1999 extends standard SVMs to produce a distribution over weights rather than a point estimate.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Clarified the KL(q||p0) + C*R(q) objective and how it leads to a Gaussian posterior for \u03b7",
+      "student_verification": "Verified against Equations (1) and (2) in the paper and cross-checked with the original MED paper citation",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "task_tag": "Task 1.1"
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Understanding how the discriminant function F(y,x;z,\u03b7) works in the mixture case",
+      "prompt": "In the iSVM paper, the component-wise discriminant function is defined as F(y,x;z,\u03b7) = \u03b7_z^T f(y,x) where f(y,x) stacks indicator subvectors. Can you explain why f(y,x) is constructed this way for multi-class classification?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Clarified that f(y,x) is a multi-label indicator vector of dimension ML where the y-th block is x and others are zero \u2014 enabling a linear score per class",
+      "student_verification": "Verified against Eq.(3) and the description below it in Section 2.3 of the paper",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 1.1"
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Tracing through the stick-breaking DP to understand the graphical model in Figure 2",
+      "prompt": "In the iSVM graphical model (Figure 2), what does each plate represent and what is shared between the red and blue boxes?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Confirmed that V and Z are shared between classifier (red) and feature (blue) components, coupling the two mixture models",
+      "student_verification": "Cross-checked against the text in Section 2.3: 'the two parts...are closely coupled by sharing the same Z and the same infinite mixing proportion vector \u03c0(v)'",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 1.1"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "Explain how Maximum Entropy Discrimination (MED) by Jaakkola et al. 1999 extends standard SVMs to produce a distribution over weights rather than a point estimate.",
+      "why_important": "This was essential to understand the MED foundation before understanding the iSVM extension. Without understanding that MED minimises KL(q||p0) + C*R(q), the hybrid objective Eq.(8) in iSVM is opaque."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "In the iSVM paper, the component-wise discriminant function is defined as F(y,x;z,\u03b7) = \u03b7_z^T f(y,x) where f(y,x) stacks indicator subvectors. Can you explain why f(y,x) is constructed this way for multi-class classification?",
+      "why_important": "Understanding f(y,x) was necessary to describe Step 3 of the architecture accurately and distinguish it from a standard softmax."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "In the iSVM graphical model (Figure 2), what does each plate represent and what is shared between the red and blue boxes?",
+      "why_important": "The graphical model sharing is the key architectural insight \u2014 it ensures the DP clusters that explain features also drive classifier assignments."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

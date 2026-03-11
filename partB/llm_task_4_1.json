@@ -1,0 +1,47 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Structuring the 4-page report to cover all required sections concisely",
+      "prompt": "I need to write a 4-page report for an ML exam covering: paper summary, reproduction setup and result, two ablation findings, failure mode, and honest reflection. How should I allocate space across these five sections for maximum clarity?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested 0.5 page for summary, 1 page for reproduction, 1 page for ablations, 0.75 for failure, 0.5 for reflection, 0.25 for references \u2014 I followed this roughly",
+      "student_verification": "Adjusted proportions based on the mark allocation in the exam rubric (Task 4.1 criterion weights)",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "task_tag": "Task 4.1"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "I need to write a 4-page report for an ML exam covering: paper summary, reproduction setup and result, two ablation findings, failure mode, and honest reflection. How should I allocate space across these five sections for maximum clarity?",
+      "why_important": "Space allocation in a 4-page limit is a real constraint. This prompt helped me avoid spending too much on the summary (already done in Task 1) and focus space on the novel findings."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

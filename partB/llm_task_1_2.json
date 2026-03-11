@@ -1,0 +1,67 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Identifying implicit assumptions in variational inference for DP mixtures",
+      "prompt": "What are the key assumptions made when using mean-field variational inference for a Dirichlet Process mixture model? I want assumptions specific to inference, not general ML assumptions like i.i.d. data.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Pointed to mean-field factorisation and finite truncation as the two primary inference-level assumptions; I then located these in Section 3 of the paper",
+      "student_verification": "Confirmed in Section 3 opening paragraph of the paper: 'we make the mean field assumption with truncated stick-breaking representations'",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 1.2"
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Understanding the exponential family assumption for features in iSVM",
+      "prompt": "In iSVM (Zhu et al. ICML 2011), the feature distribution is assumed to be from an exponential family. What computational advantages does this give for the phi update in Eq.(11), and what breaks if the features are not from an exponential family?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Clarified that E[\u03b3_t]^T x - E[A(\u03b3_t)] has a closed form only for exponential families via the conjugate prior structure",
+      "student_verification": "Verified against the DP mixture of input features subsection in Section 2.3 and the base distribution definition",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "task_tag": "Task 1.2"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "What are the key assumptions made when using mean-field variational inference for a Dirichlet Process mixture model? I want assumptions specific to inference, not general ML assumptions like i.i.d. data.",
+      "why_important": "This directly informed Assumption 1 about mean-field factorisation \u2014 the most impactful assumption for understanding when iSVM's inference breaks down."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "In iSVM (Zhu et al. ICML 2011), the feature distribution is assumed to be from an exponential family. What computational advantages does this give for the phi update in Eq.(11), and what breaks if the features are not from an exponential family?",
+      "why_important": "This informed Assumption 2 about exponential family features \u2014 critical for understanding why the paper works on real-valued Flickr features but not on arbitrary mixed data."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Explaining why our accuracy numbers differ from the paper's Table 1",
+      "prompt": "My iSVM reproduction on make_moons gives 94.17% accuracy but the paper reports ~74.7% on its synthetic Setting 1. I know the datasets are different but want to articulate the reasons clearly. What factors explain this gap?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Pointed to dataset dimensionality, sample size, nuisance covariates, and variance from 50 repeated trials as reasons the paper's numbers are lower",
+      "student_verification": "Verified by re-reading Section 4.1: the paper uses 4 covariates (one nuisance), randomly sampled component parameters, and reports mean\u00b1std over 50 datasets \u2014 all contributing to lower/more variable accuracy",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 2.3"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "My iSVM reproduction on make_moons gives 94.17% accuracy but the paper reports ~74.7% on its synthetic Setting 1. I know the datasets are different but want to articulate the reasons clearly. What factors explain this gap?",
+      "why_important": "Understanding and honestly explaining the performance gap is worth marks in Task 2.3. This prompt helped me organise the explanation around specific methodological differences rather than vague statements."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

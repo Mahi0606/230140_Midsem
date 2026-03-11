@@ -1,0 +1,37 @@
+{
+  "linear_svm": {
+    "accuracy": 0.8916666666666667,
+    "f1": 0.8869565217391304
+  },
+  "rbf_svm": {
+    "accuracy": 0.9416666666666667,
+    "f1": 0.9411764705882353,
+    "support_vectors": 92
+  },
+  "linear_isvm": {
+    "accuracy": 0.8916666666666667,
+    "f1": 0.8869565217391304,
+    "active_components": 5
+  },
+  "rbf_isvm": {
+    "accuracy": 0.9416666666666667,
+    "f1": 0.9411764705882353,
+    "active_components": 5
+  },
+  "ablation_nodp": {
+    "accuracy": 0.9416666666666667,
+    "f1": 0.9411764705882353
+  },
+  "ablation_linear": {
+    "accuracy": 0.8916666666666667,
+    "f1": 0.8869565217391304
+  },
+  "failure_isvm": {
+    "accuracy": 0.4666666666666667,
+    "f1": 0.0,
+    "active_components": 6
+  },
+  "failure_rbfsvm": {
+    "accuracy": 1.0
+  }
+}

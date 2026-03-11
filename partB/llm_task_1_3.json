@@ -1,0 +1,47 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Identifying when iSVM would not outperform dpMNL \u2014 reasoning about failure conditions",
+      "prompt": "Under what conditions would a DP mixture of SVMs (iSVM) NOT outperform a DP mixture of logistic regression models (dpMNL)? Think about properties of the dataset, the number of samples per component, and the nature of the class boundaries.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested low-sample-per-component and well-calibrated Gaussian clusters as cases where dpMNL's full generative model has an advantage",
+      "student_verification": "Checked against Table 1 Setting 1 results where the gap is indeed smallest: dpMNL=73.1 vs rbf-iSVM=74.7 \u2014 I used this as evidence for my reasoning",
+      "confidence_level": 3,
+      "code_used_verbatim": false,
+      "task_tag": "Task 1.3"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "Under what conditions would a DP mixture of SVMs (iSVM) NOT outperform a DP mixture of logistic regression models (dpMNL)? Think about properties of the dataset, the number of samples per component, and the nature of the class boundaries.",
+      "why_important": "This was the hardest part of Task 1.3 (4 marks for the condition). The LLM suggested a direction but I verified and refined the argument using Table 1 data from the paper itself."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

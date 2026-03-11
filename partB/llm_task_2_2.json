@@ -1,0 +1,89 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Understanding the efficient relaxation and how to implement Eq. 12 with sklearn SVC",
+      "prompt": "In the iSVM paper (Section 3.1), the efficient relaxation leads to T cost-sensitive SVMs (Eq. 12) with per-sample weights phi_d^t. How can I implement this using sklearn.svm.SVC with sample_weight parameter?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Confirmed that sklearn SVC sample_weight scales the C parameter per sample, which is equivalent to cost-sensitive SVM in Eq.(12)",
+      "student_verification": "Verified by checking sklearn SVC documentation: sample_weight multiplies C for each sample, producing the weighted hinge loss in Eq.(12)",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "task_tag": "Task 2.2"
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Implementing the phi update (Eq. 11) with stick-breaking expectations",
+      "prompt": "How do I compute E[log v_t] and E[log(1-v_t)] for a Beta distribution Beta(nu1, nu2) in the variational DP inference? What is the closed form?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Provided the closed form: E[log v_t] = psi(nu1) - psi(nu1+nu2) and E[log(1-v_t)] = psi(nu2) - psi(nu1+nu2) using the digamma function",
+      "student_verification": "Verified against Blei & Jordan (2006) cited in the paper and confirmed using scipy.special.digamma in my implementation",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 2.2",
+      "student_modification": "I adapted the code to use scipy.special.digamma and integrated it into the _e_log_v and _e_log_1_minus_v methods of the iSVM class."
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Debugging numerical stability in the softmax phi update",
+      "prompt": "My phi update using exp(log_phi) is producing NaN values when some log_phi entries are very negative. How can I stabilise this numerically?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Suggested the log-sum-exp trick: subtract log_phi.max(axis=1, keepdims=True) before exponentiating",
+      "student_verification": "Standard numerical trick; confirmed it eliminates NaN while preserving the normalised probabilities",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 2.2",
+      "student_modification": "I applied the log-sum-exp shift inside the fit() method's phi update loop, after computing all T log_phi columns."
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 2,
+      "prompt": "How do I compute E[log v_t] and E[log(1-v_t)] for a Beta distribution Beta(nu1, nu2) in the variational DP inference? What is the closed form?",
+      "why_important": "This was the most mathematically critical implementation detail \u2014 getting the digamma expectations wrong would break the entire DP-VI update in _log_stick_weights()."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 3,
+      "prompt": "My phi update using exp(log_phi) is producing NaN values when some log_phi entries are very negative. How can I stabilise this numerically?",
+      "why_important": "Without numerical stability the training loop failed completely. The log-sum-exp trick is standard but I needed confirmation on where to apply it in the iSVM context."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 1,
+      "prompt": "In the iSVM paper (Section 3.1), the efficient relaxation leads to T cost-sensitive SVMs (Eq. 12) with per-sample weights phi_d^t. How can I implement this using sklearn.svm.SVC with sample_weight parameter?",
+      "why_important": "This clarified the key implementation shortcut that makes the paper's algorithm practical using standard libraries."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

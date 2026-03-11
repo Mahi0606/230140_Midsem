@@ -1,0 +1,47 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Identifying a meaningful failure mode rooted in iSVM's assumptions",
+      "prompt": "For the iSVM paper (ICML 2011), I identified three assumptions in Task 1.2: mean-field factorisation, exponential family features, and tight hinge-loss bound. Which assumption leads to the most demonstrable failure mode on a toy dataset, and what hyperparameter configuration would trigger it?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Pointed to Assumption 3 (hinge-loss tightness) as the most directly controllable: setting high alpha (many components) + low C1 (weak margin) on a simple dataset creates a failure where individual component SVMs are undertrained",
+      "student_verification": "Verified by running the experiment: accuracy dropped from 100% (global RBF-SVM) to 46.7% (iSVM with alpha=10, T=8, C1=0.1) on make_blobs",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 3.2"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "For the iSVM paper (ICML 2011), I identified three assumptions in Task 1.2: mean-field factorisation, exponential family features, and tight hinge-loss bound. Which assumption leads to the most demonstrable failure mode on a toy dataset, and what hyperparameter configuration would trigger it?",
+      "why_important": "This was the hardest task in Part B. The prompt helped me design a failure mode that is both empirically demonstrable and theoretically grounded in the paper's assumptions \u2014 exactly what Task 3.2 requires for full marks."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}

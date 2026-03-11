@@ -1,0 +1,67 @@
+{
+  "student_metadata": {
+    "name": "Student",
+    "roll_number": "ROLLNUMBER",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "provider": "Anthropic"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Choosing which two components to ablate in iSVM",
+      "prompt": "For an ablation study of iSVM (ICML 2011), I need to choose two distinct components to remove. The components must be specific to this paper, not general ML choices. What are the two most impactful components I could ablate, and why?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested the DP prior (stick-breaking weights) and the kernel as the two most architecturally distinct components \u2014 both are flagged in the paper as improvements over dpMNL",
+      "student_verification": "Verified that both ablations map to specific equations: DP prior is the first term of Eq.(11), kernel is the k(x,x') extension discussed after Eq.(12)",
+      "confidence_level": 4,
+      "code_used_verbatim": false,
+      "task_tag": "Task 3.1"
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-11",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4",
+      "purpose": "Implementing the no-DP ablation cleanly by subclassing iSVM",
+      "prompt": "I want to ablate the DP prior in iSVM by replacing the stick-breaking log weights with uniform log(1/T). What is the cleanest way to do this by subclassing the iSVM class?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Suggested overriding _log_stick_weights() to return np.full(T, np.log(1/T)), which isolates the DP contribution without changing any other method",
+      "student_verification": "Confirmed that this override captures exactly the DP prior contribution since the phi update (Eq.11) reads from _log_stick_weights",
+      "confidence_level": 5,
+      "code_used_verbatim": false,
+      "task_tag": "Task 3.1"
+    }
+  ],
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 1,
+      "prompt": "For an ablation study of iSVM (ICML 2011), I need to choose two distinct components to remove. The components must be specific to this paper, not general ML choices. What are the two most impactful components I could ablate, and why?",
+      "why_important": "Choosing the right components to ablate is the core decision in Task 3.1. This prompt helped me select ablations that directly address the paper's two main claims over dpMNL."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 2,
+      "prompt": "I want to ablate the DP prior in iSVM by replacing the stick-breaking log weights with uniform log(1/T). What is the cleanest way to do this by subclassing the iSVM class?",
+      "why_important": "Clean implementation of ablations via subclassing made the code readable and kept all other components identical, which is required for a valid ablation."
+    }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for this task.",
+    "understanding_acknowledged": true,
+    "signature": "Student",
+    "date": "2026-03-11"
+  }
+}
